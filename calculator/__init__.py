@@ -1,14 +1,25 @@
-def add(a,b):
-    return a + b
+from calculator.calculation import Calculation
+from calculator.operations import add,subtract,multiply,divide
 
-def subtract(a,b):
-    return a - b
-
-def multiply(a,b):
-    return a * b
-
-def divide(a,b):
-    try:
-        return a / b
-    except ZeroDivisionError:
-        print("Cannot divide by zero")
+class Calculator:
+    @staticmethod
+    def add(a,b):
+        calc = Calculation(a,b,add)
+        return calc.get_result()
+    
+    @staticmethod
+    def subtract(a,b):
+        calc = Calculation(a,b, subtract)
+        return calc.get_result()
+    
+    @staticmethod
+    def multiply(a,b):
+        calc = Calculation(a,b,multiply)
+        return calc.get_result()
+    
+    @staticmethod
+    def divide(a,b):
+        calc = Calculation(a,b,divide)
+        return calc.get_result()
+    
+    
